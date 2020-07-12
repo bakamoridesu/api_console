@@ -57,9 +57,14 @@ class AuthForm extends Form {
     handleAuth(this.state.info)
       .then(res => {
         console.log(res.list['about.id'])
+        sessionStorage.setItem("session", res.list['about.id'])
+
+        // TODO save to redux store
+        // TODO navigate to home page
+        // TODO implement routing..
       })
       .catch(res => {
-        let error = null
+        let error
         if (res['id']) error = JSON.stringify({id: res['id'], explain: res['explain']})
         else error = (res.toString())
         this.setState({
