@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Graphics from "../common/Graphics";
 import * as str from '../../utils/strings'
 import {handleAuth} from "../../utils/api";
@@ -6,6 +7,8 @@ import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
 import Smile from "../common/Smile";
+import {_SESSION, handleLogin} from "../../actions/session";
+
 
 class AuthForm extends Form {
   state = {
@@ -56,12 +59,9 @@ class AuthForm extends Form {
     // if failed, display error block.
     handleAuth(this.state.info)
       .then(res => {
-        console.log(res.list['about.id'])
-        sessionStorage.setItem("session", res.list['about.id'])
-
-        // TODO save to redux store
-        // TODO navigate to home page
-        // TODO implement routing..
+        sessionStorage.setItem(_SESSION, res.list['about.id'])
+        const route = this.props.location.state? (this.props.location.state.from ? this.props.location.state.from: '/') : '/'
+        this.props.history.push(route)
       })
       .catch(res => {
         let error
@@ -103,7 +103,7 @@ class AuthForm extends Form {
           {this.inputField('login', true)}
           {this.inputField('sublogin', null, str.optional)}
           {this.inputField('password', null, null, 'password')}
-          <SubmitButton disabled={this.validateEmpty()} loading={loading} onSubmit={this.handleSubmit}
+          <SubmitButton disabled={this.validateEmpty()} loading={loading} onSubmit={(e) => this.handleSubmit(e)}
                         value={str.enter}/>
         </form>
       </div>
@@ -111,4 +111,4 @@ class AuthForm extends Form {
   }
 }
 
-export default AuthForm
+export default connect()(AuthForm)

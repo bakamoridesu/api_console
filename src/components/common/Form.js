@@ -71,7 +71,7 @@ class Form extends Component {
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
     // form validation before sending request
     const valErrors = this.validateForm()
