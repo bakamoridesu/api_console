@@ -3,6 +3,7 @@ import Graphics from "../common/Graphics";
 import * as str from "../../utils/strings"
 import Logout from "../common/Icons/Logout";
 import Fullscreen from "../common/Icons/Fullscreen";
+import ExitFullscreen from "../common/Icons/ExitFullscreen";
 
 function Header () {
   return (
@@ -17,6 +18,7 @@ function Header () {
       </div>
       <Logout />
       <Fullscreen />
+      <ExitFullscreen />
     </div>
   )
 }
