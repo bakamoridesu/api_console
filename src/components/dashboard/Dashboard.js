@@ -10,6 +10,7 @@ this.setState({
 import React, { Component } from 'react'
 import SubmitButton from "../common/SubmitButton";
 import {_SESSION} from "../../actions/session";
+import Header from "./Header";
 
 class Dashboard extends Component {
 
@@ -20,8 +21,20 @@ class Dashboard extends Component {
 
   render () {
     return (
-      <div className='container'>
-        <SubmitButton value='Logout' onSubmit={this.handleLogout} />
+      <div className='dashboard'>
+        <Header/>
+        <div className='hr'/>
+        <div className='dashboard_header'>
+
+        </div>
+        <div className='hr'/>
+        <div className='dashboard_content'>
+
+        </div>
+        <div className='hr'/>
+        <div className='dashboard_footer'>
+          <SubmitButton value='Отправить' onSubmit={this.handleLogout}/>
+        </div>
       </div>
     )
   }

@@ -6,7 +6,7 @@ import {handleAuth} from "../../utils/api";
 import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
-import Smile from "../common/Smile";
+import Smile from "../common/Icons/Smile";
 import {_SESSION, handleLogin} from "../../actions/session";
 
 

@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <ProtectedRoute path='/' component={Dashboard}/>
-        <Route path='/login' exact component={AuthForm} />
+        <Route path='/login' exact component={AuthForm}/>
       </Router>
     );
   }

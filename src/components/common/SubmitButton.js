@@ -6,7 +6,7 @@ export default function SubmitButton({onSubmit, loading, value, disabled}) {
   for (let i = 0; i < 9; i++) divs.push(<div key={i}/>)
 
   return (
-    <div className='auth_form_submit'>
+    <div className='form_submit'>
       <button disabled={disabled} className='button_submit' onClick={onSubmit}>
         {loading && (<div className='loader'>
           {divs}
