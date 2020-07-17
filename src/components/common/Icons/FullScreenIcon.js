@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Fullscreen() {
+export default function FullScreenIcon() {
   const color = "#0D0D0D"
   return (
     <svg className='icon'>

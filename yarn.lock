@@ -4789,6 +4789,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+fscreen@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/fscreen/-/fscreen-1.0.2.tgz#c4c51d96d819d75a19d728e0df445f9be9bb984f"
+  integrity sha1-xMUdltgZ11oZ1yjg30Rfm+m7mE8=
+
 fsevents@2.1.2, fsevents@~2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.2.tgz#4c0a1fb34bc68e543b4b82a9ec392bfbda840805"
@@ -8674,6 +8679,11 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-browser-hooks@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/react-browser-hooks/-/react-browser-hooks-2.2.4.tgz#2bcd7b4d803ac78f5160c8b3d610662bee4a5d61"
+  integrity sha512-Vj4z0BdSPqq89DIfiRcXqEGVueW9tDVN/0zXHD7ICqKmQ7nmr+EiH7ExKTmIS2oJDsUqWVB5H2HKBy5pZpI/sg==
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -8718,6 +8728,13 @@ react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
+
+react-full-screen@^0.3.1-0:
+  version "0.3.1-0"
+  resolved "https://registry.yarnpkg.com/react-full-screen/-/react-full-screen-0.3.1-0.tgz#fc862d0dd001ff2f7a13231854c00b3f471c7d62"
+  integrity sha512-5EPfr/0/bMFt1lOEyGy7ETYeGTf1cKAe41dJ8hXonLB6Xqrl9bt22fB+iNjYjcFD6+iHpX9PiKSfGgADnrZSnQ==
+  dependencies:
+    fscreen "^1.0.2"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"

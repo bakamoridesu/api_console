@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ExitFullscreen() {
+export default function ExitFullScreenIcon() {
   const color = "#0D0D0D"
   return (
     <svg className='icon'>

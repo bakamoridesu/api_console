@@ -7,37 +7,38 @@ this.setState({
   text: pretty,
 })*/
 
-import React, { Component } from 'react'
+import React from 'react'
+import {useHistory} from "react-router-dom";
 import SubmitButton from "../common/SubmitButton";
 import {_SESSION} from "../../actions/session";
 import Header from "./Header";
 
-class Dashboard extends Component {
+function Dashboard() {
+  let history = useHistory()
 
-  handleLogout = () => {
+  const handleLogout = () => {
     sessionStorage.removeItem(_SESSION)
-    this.props.history.push('/login')
+    history.push('/login')
   }
+  return (
+    <div>
+        <div className='dashboard'>
+          <Header/>
+          <div className='hr'/>
+          <div className='dashboard_header'>
 
-  render () {
-    return (
-      <div className='dashboard'>
-        <Header/>
-        <div className='hr'/>
-        <div className='dashboard_header'>
+          </div>
+          <div className='hr'/>
+          <div className='dashboard_content'>
 
+          </div>
+          <div className='hr'/>
+          <div className='dashboard_footer'>
+            <SubmitButton value='Отправить' onSubmit={handleLogout}/>
+          </div>
         </div>
-        <div className='hr'/>
-        <div className='dashboard_content'>
-
-        </div>
-        <div className='hr'/>
-        <div className='dashboard_footer'>
-          <SubmitButton value='Отправить' onSubmit={this.handleLogout}/>
-        </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Dashboard
