@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Graphics from "../common/Graphics";
 import * as str from '../../utils/strings'
-import {handleAuth} from "../../utils/api";
+import {handleAuth, handlePong} from "../../utils/api";
 import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
 import Smile from "../common/Icons/Smile";
-import {_SESSION} from "../../actions/session";
+import {_ACCOUNT, _SESSION, _SUBLOGIN} from "../../actions/session";
 
 
 class AuthForm extends Form {
@@ -59,9 +59,16 @@ class AuthForm extends Form {
     // if failed, display error block.
     handleAuth(this.state.info)
       .then(res => {
-        console.log(res)
         sessionStorage.setItem(_SESSION, res.list['about.id'])
-        const route = this.props.location.state? (this.props.location.state.from ? this.props.location.state.from: '/') : '/'
+        handlePong()
+          .then(res => {
+            sessionStorage.setItem(_ACCOUNT, res['account'])
+            if(this.state.info.sublogin !== ''){
+              sessionStorage.setItem(_SUBLOGIN, res['sublogin'])
+            }
+          })
+        const { state } = this.props.location
+        const route = state? (state.from ? state.from: '/') : '/'
         this.props.history.push(route)
       })
       .catch(res => {

@@ -1,5 +1,7 @@
 export const SET_SESSION = 'SET_SESSION'
 export const _SESSION = "session"
+export const _ACCOUNT = "account"
+export const _SUBLOGIN = "sublogin"
 
 export function set_session(session) {
   return {
