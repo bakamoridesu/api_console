@@ -7,7 +7,7 @@ import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
 import Smile from "../common/Icons/Smile";
-import {_SESSION, handleLogin} from "../../actions/session";
+import {_SESSION} from "../../actions/session";
 
 
 class AuthForm extends Form {
@@ -59,6 +59,7 @@ class AuthForm extends Form {
     // if failed, display error block.
     handleAuth(this.state.info)
       .then(res => {
+        console.log(res)
         sessionStorage.setItem(_SESSION, res.list['about.id'])
         const route = this.props.location.state? (this.props.location.state.from ? this.props.location.state.from: '/') : '/'
         this.props.history.push(route)

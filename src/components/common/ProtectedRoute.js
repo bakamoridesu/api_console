@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import {Redirect, Route} from "react-router-dom";
-import Dashboard from "../dashboard/Dashboard";
-import {connect} from "react-redux";
 import {_SESSION} from "../../actions/session";
 
 class ProtectedRoute extends Component {

@@ -5,32 +5,43 @@ import Logout from "../common/Icons/Logout";
 import FullScreenIcon from "../common/Icons/FullScreenIcon";
 import ExitFullScreenIcon from "../common/Icons/ExitFullScreenIcon";
 import { useFullScreen } from 'react-browser-hooks'
+import { useHistory } from "react-router-dom";
+import {_SESSION} from "../../actions/session";
 
 function Header () {
   const fs = useFullScreen()
+  let history = useHistory()
 
-  const handleClick = (e) => {
+  const toggleFullscreen = (e) => {
     e.currentTarget.blur()
     fs.toggle();
   }
+
+  const handleLogout = () => {
+    sessionStorage.removeItem(_SESSION)
+    history.push('/login')
+  }
+
   return (
     <div className='dashboard_header'>
-      <Graphics />
-      <span>{str.legend}</span>
-      <div className="auth_info">
-        <div className="login_info">
-          `some@email.com : sublogin`
-        </div>
+      <div>
+        <Graphics />
+        <span>{str.legend}</span>
       </div>
-      <button className="button_action">
-        <span>Выйти</span>
-        <Logout />
-      </button>
-      <button className="button_action" onClick={handleClick}>
-        {fs.fullScreen
-        ? ExitFullScreenIcon()
-        : FullScreenIcon()}
-      </button>
+      <div>
+        <div className="login_info">
+          some@email.com : sublogin
+        </div>
+        <button className="button_action button_action_text button_exit" onClick={handleLogout}>
+          {str.exit}
+          <Logout />
+        </button>
+        <button className="button_action button_icon" onClick={toggleFullscreen}>
+          {fs.fullScreen
+            ? ExitFullScreenIcon()
+            : FullScreenIcon()}
+        </button>
+      </div>
     </div>
   )
 }

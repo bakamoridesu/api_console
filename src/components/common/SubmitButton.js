@@ -8,7 +8,7 @@ export default function SubmitButton({onSubmit, loading, value, disabled}) {
   return (
     <div className='form_submit'>
       <button disabled={disabled} className='button_submit' onClick={onSubmit}>
-        {loading && (<div className='loader'>
+        {!!loading && (<div className='loader'>
           {divs}
         </div>)}
         {!loading && value}

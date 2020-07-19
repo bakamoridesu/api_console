@@ -8,18 +8,17 @@ this.setState({
 })*/
 
 import React from 'react'
-import {useHistory} from "react-router-dom";
 import SubmitButton from "../common/SubmitButton";
 import {_SESSION} from "../../actions/session";
 import Header from "./Header";
+import * as str from "../../utils/strings"
 
 function Dashboard() {
-  let history = useHistory()
 
-  const handleLogout = () => {
-    sessionStorage.removeItem(_SESSION)
-    history.push('/login')
+  const handleSend = () => {
+    console.log('Sent!')
   }
+
   return (
     <div>
         <div className='dashboard'>
@@ -34,7 +33,7 @@ function Dashboard() {
           </div>
           <div className='hr'/>
           <div className='dashboard_footer'>
-            <SubmitButton value='Отправить' onSubmit={handleLogout}/>
+            <SubmitButton value={str.send} onSubmit={handleSend}/>
           </div>
         </div>
     </div>
