@@ -9,6 +9,10 @@ import { useFullScreen } from 'react-browser-hooks'
 function Header () {
   const fs = useFullScreen()
 
+  const handleClick = (e) => {
+    e.currentTarget.blur()
+    fs.toggle();
+  }
   return (
     <div className='dashboard_header'>
       <Graphics />
@@ -18,8 +22,11 @@ function Header () {
           `some@email.com : sublogin`
         </div>
       </div>
-      <Logout />
-      <button onClick={fs.toggle}>
+      <button className="button_action">
+        <span>Выйти</span>
+        <Logout />
+      </button>
+      <button className="button_action" onClick={handleClick}>
         {fs.fullScreen
         ? ExitFullScreenIcon()
         : FullScreenIcon()}

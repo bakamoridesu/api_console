@@ -305,8 +305,43 @@ button .loader div:nth-child(9){
     border-radius: 5rem;
 }
 
+.button_action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    stroke: #0D0D0D;
+}
+
+.button_icon {
+    height: 32rem;
+    width: 32rem;
+}
+
+.button_action:hover {
+    stroke: #0055FB;
+    cursor: pointer;
+}
+
+.button_action:focus {
+    opacity: 0.5;
+    border: 2px solid #45A5FF;
+    border-radius: 7px;
+    stroke: #0055FB;
+}
+
+.button_action:active {
+    stroke: #0055FB;
+    cursor: pointer;
+    border: none;
+}
+
 .icon {
     height: 24rem;
     width: 24rem;
-    margin-left: 10rem;
+    stroke-width: 2rem;
+    stroke-linecap: round;
+    fill: none;
 }
