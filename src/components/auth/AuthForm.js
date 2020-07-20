@@ -6,7 +6,7 @@ import {handleAuth, handlePong} from "../../utils/api";
 import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
-import Smile from "../common/Icons/Smile";
+import SmileIcon from "../common/Icons/SmileIcon";
 import {_ACCOUNT, _SESSION, _SUBLOGIN} from "../../actions/session";
 
 
@@ -57,16 +57,10 @@ class AuthForm extends Form {
     // send auth request
     // if succeed, save session to local storage
     // if failed, display error block.
+
     handleAuth(this.state.info)
       .then(res => {
         sessionStorage.setItem(_SESSION, res.list['about.id'])
-        handlePong()
-          .then(res => {
-            sessionStorage.setItem(_ACCOUNT, res['account'])
-            if(this.state.info.sublogin !== ''){
-              sessionStorage.setItem(_SUBLOGIN, res['sublogin'])
-            }
-          })
         const { state } = this.props.location
         const route = state? (state.from ? state.from: '/') : '/'
         this.props.history.push(route)
@@ -86,7 +80,7 @@ class AuthForm extends Form {
     return (
       <div className='auth_form_error_block'>
         <div className='auth_form_error_block_header'>
-          <Smile/>
+          <SmileIcon/>
           <span>Вход не вышел</span>
         </div>
         <div className='auth_form_error_block_content'>
@@ -111,8 +105,10 @@ class AuthForm extends Form {
           {this.inputField('login', true)}
           {this.inputField('sublogin', null, str.optional)}
           {this.inputField('password', null, null, 'password')}
-          <SubmitButton disabled={this.validateEmpty()} loading={loading} onSubmit={(e) => this.handleSubmit(e)}
-                        value={str.enter}/>
+          <div className='submit_auth'>
+            <SubmitButton disabled={this.validateEmpty()} loading={loading} onSubmit={(e) => this.handleSubmit(e)}
+                          value={str.enter}/>
+          </div>
         </form>
       </div>
     )

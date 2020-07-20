@@ -12,13 +12,13 @@ import SubmitButton from "../common/SubmitButton";
 import {_SESSION} from "../../actions/session";
 import Header from "./Header";
 import * as str from "../../utils/strings"
+import Footer from "./Footer";
 
 function Dashboard() {
-
-  const handleSend = () => {
-    console.log('Sent!')
+  const handleFormat = (e) => {
+    e.currentTarget.blur()
+    console.log('format!')
   }
-
   return (
     <div>
         <div className='dashboard'>
@@ -32,9 +32,7 @@ function Dashboard() {
 
           </div>
           <div className='hr'/>
-          <div className='dashboard_footer'>
-            <SubmitButton value={str.send} onSubmit={handleSend}/>
-          </div>
+          <Footer handleFormat={handleFormat}/>
         </div>
     </div>
   )

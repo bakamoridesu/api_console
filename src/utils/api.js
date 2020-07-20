@@ -1,16 +1,28 @@
 import Sendsay from 'sendsay-api';
+import {_AUTH, _SESSION} from "../actions/session";
 
-const sendsay = new Sendsay();
+let sendsay;
 
-export async function handleAuth({login, sublogin=null, password}) {
-  await sendsay.login({
-      login: login,
-      sublogin: sublogin,
-      password: password,
+function initSendsay (auth) {
+  sessionStorage.setItem(_AUTH, JSON.stringify(auth))
+  return new Sendsay({
+    auth,
   })
-  return sendsay.request({ action: 'sys.settings.get'})
+}
+
+export async function handleAuth({login, sublogin = null, password}) {
+  const auth = {
+    login,
+    sublogin,
+    password,
+  }
+  sendsay = initSendsay(auth)
+  return sendsay.request({action: 'sys.settings.get'})
 }
 
 export function handlePong() {
+  if (!sendsay) {
+    sendsay = initSendsay(JSON.parse(sessionStorage.getItem(_AUTH)))
+  }
   return sendsay.request({action: 'pong'})
 }

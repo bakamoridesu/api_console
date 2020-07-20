@@ -117,11 +117,11 @@ body {
 }
 
 .form_input {
-    border: 1rem solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .form_input_error {
-    border: 1rem solid #CF2C00;
+    border: 1px solid #CF2C00;
     box-sizing: border-box;
     box-shadow: 0 0 5rem rgba(207, 44, 0, 0.5);
 }
@@ -159,7 +159,6 @@ body {
 
 .button_submit {
     width: 110rem;
-    margin-top: 20rem;
     background: linear-gradient(180deg, #45A6FF 0%, #0055FB 100%), #C4C4C4;
     color: #FFFFFF;
     font-size: 16rem;
@@ -174,13 +173,17 @@ body {
     justify-content: center;
 }
 
+.submit_auth {
+    margin-top: 20rem;
+}
+
 .button_submit:hover {
     cursor: pointer;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%), #C4C4C4;
 }
 
 .button_submit:focus {
-    border: 2rem solid rgba(69, 165, 255, .5);
+    border: 2px solid rgba(69, 165, 255, .5);
     border-radius: 7rem;
     background-clip: padding-box;
     outline: none;
@@ -300,7 +303,7 @@ button .loader div:nth-child(9){
     height: 30rem;
     font-size: 16rem;
     line-height: 20rem;
-    border: 1rem solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     border-radius: 5rem;
     padding: 0 15rem;
@@ -313,19 +316,23 @@ button .loader div:nth-child(9){
 }
 
 .dashboard_content {
-    height: 875rem;
+    flex: 1;
     background-color: #FFFFFF;
 }
 
 .dashboard_footer {
     height: 70rem;
     background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15rem;
 }
 
 .hr {
     background: #FFFFFF;
     height: 1rem;
-    border: 1rem solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     border-radius: 5rem;
 }

@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Graphics from "../common/Graphics";
 import * as str from "../../utils/strings"
-import Logout from "../common/Icons/Logout";
+import LogoutIcon from "../common/Icons/LogoutIcon";
 import FullScreenIcon from "../common/Icons/FullScreenIcon";
 import ExitFullScreenIcon from "../common/Icons/ExitFullScreenIcon";
 import {useFullScreen} from 'react-browser-hooks'
 import {useHistory} from "react-router-dom";
-import {_ACCOUNT, _SESSION, _SUBLOGIN} from "../../actions/session";
+import { _SESSION } from "../../actions/session";
+import {handlePong} from "../../utils/api";
 
 function Header() {
   const fs = useFullScreen()
@@ -22,8 +23,35 @@ function Header() {
     history.push('/login')
   }
 
-  const account = sessionStorage.getItem(_ACCOUNT)
-  const sublogin = sessionStorage.getItem(_SUBLOGIN)
+  class AccountInfo extends Component {
+    state = {
+      account: '',
+      sublogin: '',
+    }
+    componentDidMount() {
+      handlePong()
+        .then((res) => {
+          console.log('pong res: ', res)
+          const { account, sublogin } = res
+          this.setState({
+            account,
+            sublogin,
+          })
+        })
+    }
+
+    render() {
+      const { account, sublogin } = this.state
+      console.log(sublogin)
+      return (
+        <div className="login_info">
+          {account}
+          {sublogin!=='' && sublogin !== account && ` : ${sublogin}`}
+        </div>
+      )
+    }
+  }
+
   return (
     <div className='dashboard_header'>
       <div>
@@ -31,15 +59,12 @@ function Header() {
         <span>{str.legend}</span>
       </div>
       <div>
-        <div className="login_info">
-          {account}
-          {sublogin && ` : ${sublogin}`}
-        </div>
+        <AccountInfo/>
         <button
           className="button_action button_action_text button_exit"
           onClick={handleLogout}>
           {str.exit}
-          <Logout/>
+          <LogoutIcon/>
         </button>
         <button className="button_action button_icon" onClick={toggleFullscreen}>
           {fs.fullScreen

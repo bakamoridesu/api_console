@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Smile() {
+export default function SmileIcon() {
   const color = "#CF2C00"
   return (
       <svg width={22} height={22}>
