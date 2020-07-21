@@ -13,6 +13,7 @@ import {_SESSION} from "../../actions/session";
 import Header from "./Header";
 import * as str from "../../utils/strings"
 import Footer from "./Footer";
+import Content from "./Content";
 
 function Dashboard() {
   const handleFormat = (e) => {
@@ -28,9 +29,7 @@ function Dashboard() {
 
           </div>
           <div className='hr'/>
-          <div className='dashboard_content'>
-
-          </div>
+          <Content />
           <div className='hr'/>
           <Footer handleFormat={handleFormat}/>
         </div>

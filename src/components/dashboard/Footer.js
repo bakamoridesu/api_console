@@ -16,8 +16,9 @@ export default function Footer ({handleFormat}) {
       <button
         className="button_action button_action_text"
         onClick={(event) => handleFormat(event)}>
-        {str.format}
         <FormatIcon/>
+        <span>
+          {str.format}</span>
       </button>
     </div>
   )
