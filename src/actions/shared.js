@@ -1,4 +1,5 @@
-import { _SESSION, set_session } from "./session";
+import { set_session } from "./session";
+import {_SESSION} from "../utils/api";
 
 export function handleInitialData(session) {
   return (dispatch) => {

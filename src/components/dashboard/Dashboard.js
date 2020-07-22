@@ -9,11 +9,11 @@ this.setState({
 
 import React from 'react'
 import SubmitButton from "../common/SubmitButton";
-import {_SESSION} from "../../actions/session";
 import Header from "./Header";
 import * as str from "../../utils/strings"
 import Footer from "./Footer";
 import Content from "./Content";
+import {_SESSION} from "../../utils/api";
 
 function Dashboard() {
   const handleFormat = (e) => {

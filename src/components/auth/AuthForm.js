@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Graphics from "../common/Graphics";
 import * as str from '../../utils/strings'
-import {handleAuth, handlePong} from "../../utils/api";
+import {_SESSION, handleAuth, handlePong} from "../../utils/api";
 import SubmitButton from "../common/SubmitButton";
 import Joi from '@hapi/joi'
 import Form from "../common/Form";
 import SmileIcon from "../common/Icons/SmileIcon";
-import {_ACCOUNT, _SESSION, _SUBLOGIN} from "../../actions/session";
+import {_ACCOUNT, _SUBLOGIN} from "../../actions/session";
 
 
 class AuthForm extends Form {
@@ -78,12 +78,12 @@ class AuthForm extends Form {
 
   errorBlock = () => {
     return (
-      <div className='auth_form_error_block'>
-        <div className='auth_form_error_block_header'>
+      <div className='error-block'>
+        <div className='error-block__header'>
           <SmileIcon/>
-          <span>Вход не вышел</span>
+          <span className='error-block__description'>Вход не вышел</span>
         </div>
-        <div className='auth_form_error_block_content'>
+        <div className='error-block__content'>
           {this.state.error}
         </div>
       </div>
@@ -99,8 +99,8 @@ class AuthForm extends Form {
     return (
       <div className="auth">
         <Graphics/>
-        <form className="auth_form">
-          <legend>{str.legend}</legend>
+        <form className="auth-form">
+          <legend className='auth-form__legend'>{str.legend}</legend>
           {error && this.errorBlock()}
           {this.inputField('login', true)}
           {this.inputField('sublogin', null, str.optional)}

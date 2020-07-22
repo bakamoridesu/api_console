@@ -1,6 +1,6 @@
+import {_SESSION} from "../utils/api";
+
 export const SET_SESSION = 'SET_SESSION'
-export const _SESSION = "session"
-export const _AUTH = "auth"
 
 export function set_session(session) {
   return {

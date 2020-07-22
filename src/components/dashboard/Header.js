@@ -6,8 +6,7 @@ import FullScreenIcon from "../common/Icons/FullScreenIcon";
 import ExitFullScreenIcon from "../common/Icons/ExitFullScreenIcon";
 import {useFullScreen} from 'react-browser-hooks'
 import {useHistory} from "react-router-dom";
-import { _SESSION } from "../../actions/session";
-import {handlePong} from "../../utils/api";
+import {_SESSION, handlePong} from "../../utils/api";
 
 function Header() {
   const fs = useFullScreen()

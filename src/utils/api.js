@@ -1,5 +1,6 @@
 import Sendsay from 'sendsay-api';
-import {_AUTH, _SESSION} from "../actions/session";
+export const _AUTH = "auth"
+export const _SESSION = "session"
 
 let sendsay;
 
@@ -26,3 +27,4 @@ export function handlePong() {
   }
   return sendsay.request({action: 'pong'})
 }
+

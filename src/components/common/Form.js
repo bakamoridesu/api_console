@@ -87,18 +87,18 @@ class Form extends Component {
   inputField = (name, autofocus=null, optional=null, type='text') => {
     const error = this.getValidationErrorMessage(this.state.valErrors[name], name)
     return (
-      <div className="form_group">
+      <div className="form-group">
         {optional
           ? (
-            <div className="form_group_optional">
-              <label className='form_label_correct' htmlFor={name}>{str[name]}</label>
-              <span>{optional}</span>
+            <div className="form-group__optional">
+              <label className='form-group__label' htmlFor={name}>{str[name]}</label>
+              <span className='form-group__optlabel'>{optional}</span>
             </div>
           )
           : (
-            <label className={error? 'form_label_error' : 'form_label_correct'}   htmlFor={name}>{str[name]}</label>)
+            <label className={`form-group__label ${error? 'label-error' : ''}`}   htmlFor={name}>{str[name]}</label>)
         }
-        <input className={error? 'form_input_error' : 'form_input'}
+        <input className={`form-group__input input ${error? 'input-error' : ''}`}
                type={type}
                id={name}
                name={name}
@@ -106,7 +106,7 @@ class Form extends Component {
                onChange={this.handleChange}
                autoFocus = {!!autofocus}
         />
-        {error && <div className="form_error">{error}</div>}
+        {error && <div className="form-group__error">{error}</div>}
       </div>
     )
   }

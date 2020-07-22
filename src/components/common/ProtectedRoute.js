@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Redirect, Route} from "react-router-dom";
-import {_SESSION} from "../../actions/session";
+import {_SESSION} from "../../utils/api";
 
 class ProtectedRoute extends Component {
   render() {
